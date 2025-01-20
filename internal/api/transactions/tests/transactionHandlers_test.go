@@ -13,31 +13,6 @@ type MockTransactionUseCase struct {
 	mock.Mock
 }
 
-func (m *MockTransactionUseCase) DeleteTransaction(id1 int64, id2 int64) error {
-	args := m.Called(id1, id2)
-	return args.Error(0)
-}
-
-func (m *MockTransactionUseCase) FilterTransactions(id int64, filter *transactions.Filter) ([]*transactions.Transaction, error) {
-	args := m.Called(id, filter)
-	return args.Get(0).([]*transactions.Transaction), args.Error(1)
-}
-
-func (m *MockTransactionUseCase) CreateTransaction(id int64, name string, quantity int, price float64) error {
-	args := m.Called(id, name, quantity, price)
-	return args.Error(0)
-}
-
-func (m *MockTransactionUseCase) GetTransactions(id int64) ([]*transactions.Transaction, error) {
-	args := m.Called(id)
-	return args.Get(0).([]*transactions.Transaction), args.Error(1)
-}
-
-func (m *MockTransactionUseCase) UpdateTransaction(transaction *transactions.Transaction) error {
-	args := m.Called(transaction)
-	return args.Error(0)
-}
-
 func TestNewTransactionHandler(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
@@ -70,4 +45,29 @@ func TestNewTransactionHandler(t *testing.T) {
 		}
 		assert.True(t, found, "Route %s %s not registered", expected.method, expected.path)
 	}
+}
+
+func (m *MockTransactionUseCase) DeleteTransaction(id1 int64, id2 int64) error {
+	args := m.Called(id1, id2)
+	return args.Error(0)
+}
+
+func (m *MockTransactionUseCase) FilterTransactions(id int64, filter *transactions.Filter) ([]*transactions.Transaction, error) {
+	args := m.Called(id, filter)
+	return args.Get(0).([]*transactions.Transaction), args.Error(1)
+}
+
+func (m *MockTransactionUseCase) CreateTransaction(id int64, name string, quantity int, price float64) error {
+	args := m.Called(id, name, quantity, price)
+	return args.Error(0)
+}
+
+func (m *MockTransactionUseCase) GetTransactions(id int64) ([]*transactions.Transaction, error) {
+	args := m.Called(id)
+	return args.Get(0).([]*transactions.Transaction), args.Error(1)
+}
+
+func (m *MockTransactionUseCase) UpdateTransaction(transaction *transactions.Transaction) error {
+	args := m.Called(transaction)
+	return args.Error(0)
 }
