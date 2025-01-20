@@ -32,7 +32,7 @@ func NewStatisticsHandler(router *gin.RouterGroup, su StatisticsUseCase) {
 }
 
 func (h *StatisticsHandler) GetGeneralStatistics(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -48,7 +48,7 @@ func (h *StatisticsHandler) GetGeneralStatistics(c *gin.Context) {
 }
 
 func (h *StatisticsHandler) GetHighestExpenseMonth(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -69,7 +69,7 @@ func (h *StatisticsHandler) GetHighestExpenseMonth(c *gin.Context) {
 }
 
 func (h *StatisticsHandler) GetHighestIncomeMonth(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -90,7 +90,7 @@ func (h *StatisticsHandler) GetHighestIncomeMonth(c *gin.Context) {
 }
 
 func (h *StatisticsHandler) GetCategoryPercentageChanges(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -106,7 +106,7 @@ func (h *StatisticsHandler) GetCategoryPercentageChanges(c *gin.Context) {
 }
 
 func (h *StatisticsHandler) GetSpendingHeatmap(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -122,7 +122,7 @@ func (h *StatisticsHandler) GetSpendingHeatmap(c *gin.Context) {
 }
 
 func (h *StatisticsHandler) GetMonthlyExpensesSummary(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -138,7 +138,7 @@ func (h *StatisticsHandler) GetMonthlyExpensesSummary(c *gin.Context) {
 }
 
 func (h *StatisticsHandler) GetExpensesByCategory(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return

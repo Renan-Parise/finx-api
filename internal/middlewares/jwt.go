@@ -45,8 +45,8 @@ func JWTAuthMiddleware() gin.HandlerFunc {
 				c.Next()
 				return
 			}
-			if userID, ok := claims["user_id"].(float64); ok {
-				c.Set("user_id", int64(userID))
+			if userID, ok := claims["userID"].(float64); ok {
+				c.Set("userID", int64(userID))
 			}
 			c.Next()
 			return

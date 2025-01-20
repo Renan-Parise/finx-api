@@ -30,7 +30,7 @@ func NewTransactionHandler(router *gin.RouterGroup, tu TransactionUseCase) {
 }
 
 func (h *TransactionHandler) CreateTransaction(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -57,7 +57,7 @@ func (h *TransactionHandler) CreateTransaction(c *gin.Context) {
 }
 
 func (h *TransactionHandler) GetTransactions(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -73,7 +73,7 @@ func (h *TransactionHandler) GetTransactions(c *gin.Context) {
 }
 
 func (h *TransactionHandler) UpdateTransaction(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -115,7 +115,7 @@ func (h *TransactionHandler) UpdateTransaction(c *gin.Context) {
 }
 
 func (h *TransactionHandler) DeleteTransaction(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
@@ -138,7 +138,7 @@ func (h *TransactionHandler) DeleteTransaction(c *gin.Context) {
 }
 
 func (h *TransactionHandler) FilterTransactions(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	userID, exists := c.Get("userID")
 	if !exists {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
