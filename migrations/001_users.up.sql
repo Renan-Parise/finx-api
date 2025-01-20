@@ -1,0 +1,16 @@
+CREATE TABLE users (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `active` TINYINT(1) DEFAULT '1',
+    `password` VARCHAR(255) NOT NULL,
+    `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updatedAt` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    `deactivatedAt` DATETIME DEFAULT NULL,
+    `isTwoFAEnabled` TINYINT(1) DEFAULT '0',
+    `twoFACode` VARCHAR(6) DEFAULT '',
+    `twoFACodeExpiration` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `passwordRecoveryCode` VARCHAR(255) DEFAULT NULL,
+    `recoveryCodeExpiration` DATETIME DEFAULT NULL,
+    PRIMARY KEY (`id`)
+);
